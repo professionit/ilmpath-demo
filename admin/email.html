@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILM PATH - Email Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-navy': '#0B3C5A',
+                        'deep-navy': '#003C69',
+                        'medium-blue': '#3282B8',
+                        'light-blue': '#627D98',
+                        'very-light-blue': '#E8EEF5',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'heading': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="min-h-screen bg-gray-50 flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-dark-navy h-screen flex flex-col  sidebar-fixed  left-0 top-0 border-r border-gray-800 z-20 shadow-xl">
+            <div class="h-16 flex items-center px-6 border-b border-gray-800 shrink-0">
+                <h1 class="text-2xl font-bold text-white tracking-tight">ILM PATH <span class="text-sm font-medium text-blue-400 ml-1">Admin</span></h1>
+            </div>
+            <nav class="flex-1 py-6 px-4 space-y-2 overflow-y-auto custom-scrollbar">
+                <a href="dashboard.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span class="font-medium text-sm">Dashboard</span>
+                </a>
+                <a href="users.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <span class="font-medium text-sm">User Management</span>
+                </a>
+                <a href="approvals.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="font-medium text-sm">Course Approvals</span>
+                </a>
+                <a href="payments.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                    <span class="font-medium text-sm">Payments & Billing</span>
+                </a>
+                <a href="analytics.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <span class="font-medium text-sm">Analytics & Reports</span>
+                </a>
+                <a href="settings.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="font-medium text-sm">System Settings</span>
+                </a>
+                <a href="email.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors bg-medium-blue text-white shadow-sm">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <span class="font-medium text-sm">Email Management</span>
+                </a>
+                <a href="audit.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <span class="font-medium text-sm">Audit Logs</span>
+                </a>
+            </nav>
+        </aside>
+
+  <div class="sidebar-overlay" onclick="closePortalSidebar()"></div>
+        <!-- Main Content -->
+        <div class="flex-1 ml-64 flex flex-col min-h-screen main-content">
+            <!-- Header -->
+            <header class="h-16 bg-dark-navy text-white flex items-center justify-between px-8 fixed top-0 right-0 left-64 z-10 shadow-sm border-b border-gray-800 portal-header">
+      <button onclick="togglePortalSidebar()" class="mobile-menu-btn md:hidden items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+                      <div class="flex-1 flex justify-start items-center gap-6">
+                    <div class="flex items-center gap-3 bg-gray-800 px-4 py-2 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors cursor-pointer">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-sm font-medium text-gray-200">Last 30 Days</span>
+                        <svg class="w-4 h-4 text-gray-400 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 bg-green-500/10 px-3 py-1.5 rounded-full border border-green-500/20 mr-2">
+                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span class="text-xs font-semibold text-green-400">All Systems Operational</span>
+                    </div>
+
+                    <button class="relative text-gray-300 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-dark-navy"></span>
+                    </button>
+                    
+                    <div class="relative ml-2">
+                        <button class="flex items-center gap-3 hover:opacity-80 transition-opacity" onclick="toggleProfileDropdown()">
+                            <div class="w-9 h-9 rounded-full bg-indigo-600 flex items-center justify-center font-semibold overflow-hidden border border-indigo-400">
+                                <span class="text-white text-sm">SA</span>
+                            </div>
+                            <div class="flex flex-col items-start hidden sm:flex">
+                                <span class="text-sm font-medium">System Admin</span>
+                                <span class="text-xs text-indigo-300">Administrator</span>
+                            </div>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+
+                        <div id="profileDropdown" class="hidden absolute right-0 mt-3 w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100 text-dark-navy overflow-hidden">
+                            <div class="px-4 py-2 border-b border-gray-100 mb-1">
+                                <p class="text-sm font-bold">System Admin</p>
+                                <p class="text-xs text-light-blue">admin@ilmpath.com</p>
+                            </div>
+                            <a href="settings.html" class="block px-4 py-2 text-sm hover:bg-very-light-blue transition-colors">Admin Settings</a>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <button onclick="showLoginModal()" class="w-full text-left block px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 mt-16 bg-gray-50/50 p-6 md:p-8">
+                <div class="space-y-6 animate-fade-in pb-12 max-w-7xl mx-auto">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div>
+                            <h2 class="text-2xl font-bold text-dark-navy">Email Management</h2>
+                            <p class="text-light-blue text-sm mt-1">Configure automated transactional emails and send broadcasts.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Template List -->
+                        <div class="lg:col-span-1 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-bold text-dark-navy">Templates</h3>
+                                <button class="text-medium-blue hover:text-deep-navy">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                </button>
+                            </div>
+                            
+                            <div class="relative">
+                                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                <input type="text" placeholder="Search templates..." class="w-full bg-white border border-gray-200 rounded-lg py-2 pl-9 pr-3 text-sm focus:outline-none focus:border-medium-blue" />
+                            </div>
+
+                            <div class="space-y-2">
+                                <div onclick="switchEmail(1)" id="tpl-1" class="p-4 rounded-xl border cursor-pointer transition-colors bg-very-light-blue border-medium-blue">
+                                    <h4 class="font-bold text-sm text-medium-blue">Welcome Email</h4>
+                                    <p class="text-xs text-light-blue mt-1">To: All New Users</p>
+                                </div>
+                                <div onclick="switchEmail(2)" id="tpl-2" class="p-4 rounded-xl border cursor-pointer transition-colors bg-white border-gray-100 hover:border-gray-300">
+                                    <h4 class="font-bold text-sm text-dark-navy">Password Reset</h4>
+                                    <p class="text-xs text-light-blue mt-1">To: System Request</p>
+                                </div>
+                                <div onclick="switchEmail(3)" id="tpl-3" class="p-4 rounded-xl border cursor-pointer transition-colors bg-white border-gray-100 hover:border-gray-300">
+                                    <h4 class="font-bold text-sm text-dark-navy">Course Approved</h4>
+                                    <p class="text-xs text-light-blue mt-1">To: Teachers</p>
+                                </div>
+                                <div onclick="switchEmail(4)" id="tpl-4" class="p-4 rounded-xl border cursor-pointer transition-colors bg-white border-gray-100 hover:border-gray-300">
+                                    <h4 class="font-bold text-sm text-dark-navy">Payment Failed</h4>
+                                    <p class="text-xs text-light-blue mt-1">To: Students</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Template Editor -->
+                        <div class="lg:col-span-2">
+                            <!-- Welcome Email -->
+                            <div id="email-1" class="email-content">
+                                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-[600px]">
+                                    <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                                        <h3 class="font-bold text-dark-navy flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-medium-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                            Edit Template: Welcome Email
+                                        </h3>
+                                        <div class="flex gap-2">
+                                            <button class="px-3 py-1.5 bg-gray-100 text-dark-navy rounded text-xs font-bold hover:bg-gray-200">Send Test</button>
+                                            <button class="px-3 py-1.5 bg-medium-blue text-white rounded text-xs font-bold hover:bg-deep-navy">Save</button>
+                                        </div>
+                                    </div>
+                                    <div class="p-5 border-b border-gray-100 space-y-4">
+                                        <div class="flex items-center gap-4">
+                                            <label class="text-sm font-bold text-dark-navy w-20">Subject:</label>
+                                            <input type="text" value="Welcome to ILM PATH, {{user.name}}!" class="flex-1 bg-white border border-gray-200 rounded py-1.5 px-3 text-sm focus:outline-none focus:border-medium-blue font-mono" />
+                                        </div>
+                                    </div>
+                                    <div class="p-5 flex-1 bg-gray-50/30 overflow-y-auto">
+                                        <div class="max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-sm p-8 space-y-6">
+                                            <div class="w-12 h-12 bg-dark-navy rounded flex items-center justify-center">
+                                                <span class="text-white font-bold text-xl">ILM</span>
+                                            </div>
+                                            <h1 class="text-2xl font-bold text-dark-navy">Welcome to your journey.</h1>
+                                            <p class="text-gray-600 leading-relaxed">As-salamu alaykum <span class="bg-yellow-100 text-yellow-800 px-1 rounded font-mono text-xs">{{user.name}}</span>,<br><br>We are thrilled to have you join ILM PATH. Our platform connects you with certified scholars to help you achieve your educational goals in Islamic Studies.</p>
+                                            <button class="bg-medium-blue text-white font-bold py-3 px-6 rounded-lg text-sm">Explore Courses</button>
+                                            <p class="text-sm text-gray-400 mt-8 border-t border-gray-100 pt-4">If you have any questions, reply directly to this email.<br>&copy; 2026 ILM PATH.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Password Reset -->
+                            <div id="email-2" class="email-content hidden">
+                                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-[600px]">
+                                    <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                                        <h3 class="font-bold text-dark-navy flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-medium-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                            Edit Template: Password Reset
+                                        </h3>
+                                        <div class="flex gap-2">
+                                            <button class="px-3 py-1.5 bg-gray-100 text-dark-navy rounded text-xs font-bold hover:bg-gray-200">Send Test</button>
+                                            <button class="px-3 py-1.5 bg-medium-blue text-white rounded text-xs font-bold hover:bg-deep-navy">Save</button>
+                                        </div>
+                                    </div>
+                                    <div class="p-5 border-b border-gray-100 space-y-4">
+                                        <div class="flex items-center gap-4">
+                                            <label class="text-sm font-bold text-dark-navy w-20">Subject:</label>
+                                            <input type="text" value="Reset your ILM PATH password" class="flex-1 bg-white border border-gray-200 rounded py-1.5 px-3 text-sm focus:outline-none focus:border-medium-blue font-mono" />
+                                        </div>
+                                    </div>
+                                    <div class="p-5 flex-1 bg-gray-50/30 overflow-y-auto">
+                                        <div class="max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-sm p-8 space-y-6">
+                                            <div class="w-12 h-12 bg-dark-navy rounded flex items-center justify-center">
+                                                <span class="text-white font-bold text-xl">ILM</span>
+                                            </div>
+                                            <h1 class="text-2xl font-bold text-dark-navy">Password Reset Request</h1>
+                                            <p class="text-gray-600 leading-relaxed">Hello <span class="bg-yellow-100 text-yellow-800 px-1 rounded font-mono text-xs">{{user.name}}</span>,<br><br>We received a request to reset the password for your ILM PATH account. Click the button below to choose a new password.</p>
+                                            <button class="bg-medium-blue text-white font-bold py-3 px-6 rounded-lg text-sm">Reset Password</button>
+                                            <p class="text-sm text-gray-500 mt-4">If you did not make this request, you can safely ignore this email.</p>
+                                            <p class="text-sm text-gray-400 mt-8 border-t border-gray-100 pt-4">If you have any questions, reply directly to this email.<br>&copy; 2026 ILM PATH.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Course Approved -->
+                            <div id="email-3" class="email-content hidden">
+                                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-[600px]">
+                                    <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                                        <h3 class="font-bold text-dark-navy flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-medium-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                            Edit Template: Course Approved
+                                        </h3>
+                                        <div class="flex gap-2">
+                                            <button class="px-3 py-1.5 bg-gray-100 text-dark-navy rounded text-xs font-bold hover:bg-gray-200">Send Test</button>
+                                            <button class="px-3 py-1.5 bg-medium-blue text-white rounded text-xs font-bold hover:bg-deep-navy">Save</button>
+                                        </div>
+                                    </div>
+                                    <div class="p-5 border-b border-gray-100 space-y-4">
+                                        <div class="flex items-center gap-4">
+                                            <label class="text-sm font-bold text-dark-navy w-20">Subject:</label>
+                                            <input type="text" value="Great news! Your course &quot;{{course.title}}&quot; has been approved" class="flex-1 bg-white border border-gray-200 rounded py-1.5 px-3 text-sm focus:outline-none focus:border-medium-blue font-mono" />
+                                        </div>
+                                    </div>
+                                    <div class="p-5 flex-1 bg-gray-50/30 overflow-y-auto">
+                                        <div class="max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-sm p-8 space-y-6">
+                                            <div class="w-12 h-12 bg-dark-navy rounded flex items-center justify-center">
+                                                <span class="text-white font-bold text-xl">ILM</span>
+                                            </div>
+                                            <h1 class="text-2xl font-bold text-dark-navy">Course Approved!</h1>
+                                            <p class="text-gray-600 leading-relaxed">As-salamu alaykum <span class="bg-yellow-100 text-yellow-800 px-1 rounded font-mono text-xs">{{teacher.name}}</span>,<br><br>We are pleased to inform you that your course <span class="font-bold">{{course.title}}</span> has passed our quality review and is now live on the platform!</p>
+                                            <button class="bg-medium-blue text-white font-bold py-3 px-6 rounded-lg text-sm">View Your Course</button>
+                                            <p class="text-sm text-gray-400 mt-8 border-t border-gray-100 pt-4">If you have any questions, reply directly to this email.<br>&copy; 2026 ILM PATH.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Payment Failed -->
+                            <div id="email-4" class="email-content hidden">
+                                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-[600px]">
+                                    <div class="p-4 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                                        <h3 class="font-bold text-dark-navy flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-medium-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                                            Edit Template: Payment Failed
+                                        </h3>
+                                        <div class="flex gap-2">
+                                            <button class="px-3 py-1.5 bg-gray-100 text-dark-navy rounded text-xs font-bold hover:bg-gray-200">Send Test</button>
+                                            <button class="px-3 py-1.5 bg-medium-blue text-white rounded text-xs font-bold hover:bg-deep-navy">Save</button>
+                                        </div>
+                                    </div>
+                                    <div class="p-5 border-b border-gray-100 space-y-4">
+                                        <div class="flex items-center gap-4">
+                                            <label class="text-sm font-bold text-dark-navy w-20">Subject:</label>
+                                            <input type="text" value="Action Required: Payment failed for {{course.title}}" class="flex-1 bg-white border border-gray-200 rounded py-1.5 px-3 text-sm focus:outline-none focus:border-medium-blue font-mono" />
+                                        </div>
+                                    </div>
+                                    <div class="p-5 flex-1 bg-gray-50/30 overflow-y-auto">
+                                        <div class="max-w-2xl mx-auto bg-white border border-gray-200 rounded-lg shadow-sm p-8 space-y-6">
+                                            <div class="w-12 h-12 bg-dark-navy rounded flex items-center justify-center">
+                                                <span class="text-white font-bold text-xl">ILM</span>
+                                            </div>
+                                            <h1 class="text-2xl font-bold text-red-600">Payment Failed</h1>
+                                            <p class="text-gray-600 leading-relaxed">Hello <span class="bg-yellow-100 text-yellow-800 px-1 rounded font-mono text-xs">{{user.name}}</span>,<br><br>We were unable to process your recent payment for <span class="font-bold">{{course.title}}</span>. Your access to the course materials may be temporarily restricted.</p>
+                                            <p class="text-gray-600 leading-relaxed">Amount Due: <span class="font-bold text-red-600 font-mono">{{payment.amount}}</span></p>
+                                            <button class="bg-red-600 text-white font-bold py-3 px-6 rounded-lg text-sm">Update Payment Method</button>
+                                            <p class="text-sm text-gray-400 mt-8 border-t border-gray-100 pt-4">If you have any questions, reply directly to this email.<br>&copy; 2026 ILM PATH.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer -->
+                    <div class="mt-8 pt-6 border-t border-gray-200 text-center flex items-center justify-between">
+                        <p class="text-sm text-light-blue">&copy; 2026 ILM PATH. All rights reserved. | Developed by <a href="https://professionit.com" target="_blank" class="hover:text-dark-navy transition-colors font-bold">Profession IT</a></p>
+                        <div class="flex items-center gap-4 text-sm text-light-blue">
+                            <a href="audit.html" class="hover:text-medium-blue transition-colors">Audit Trail</a>
+                            <a href="audit.html" class="hover:text-medium-blue transition-colors">System Logs</a>
+                            <a href="#" class="hover:text-medium-blue transition-colors">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 mx-4">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-dark-navy">Sign In to Admin Portal</h2>
+                <p class="text-light-blue text-sm mt-1">Enter your credentials to continue</p>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label class="text-sm font-bold text-dark-navy block mb-1">Email Address</label>
+                    <input type="email" placeholder="admin@ilmpath.com" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-medium-blue focus:ring-1 focus:ring-medium-blue" />
+                </div>
+                <div>
+                    <label class="text-sm font-bold text-dark-navy block mb-1">Password</label>
+                    <input type="password" placeholder="Enter your password" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-medium-blue focus:ring-1 focus:ring-medium-blue" />
+                </div>
+                <button type="button" onclick="handleLogin()" class="w-full bg-medium-blue text-white font-bold py-2.5 rounded-lg hover:bg-deep-navy transition-colors">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+        function toggleProfileDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+        
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+        }
+        
+        function hideLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+        }
+        
+        function handleLogin() {
+            hideLoginModal();
+            window.location.href = '../index.html';
+        }
+        
+        function switchEmail(id) {
+            document.querySelectorAll('.email-content').forEach(function(el) {
+                el.classList.add('hidden');
+            });
+            document.getElementById('email-' + id).classList.remove('hidden');
+        }
+        
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('profileDropdown');
+            const btn = e.target.closest('button[onclick="toggleProfileDropdown()"]');
+            if (!btn && !e.target.closest('#profileDropdown')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

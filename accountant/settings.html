@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILM PATH - Finance Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-navy': '#0B3C5A',
+                        'deep-navy': '#003C69',
+                        'medium-blue': '#3282B8',
+                        'light-blue': '#627D98',
+                        'very-light-blue': '#E8EEF5',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'heading': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="min-h-screen bg-gray-50 flex">
+        <aside class="w-64 bg-dark-navy h-screen flex flex-col  sidebar-fixed  left-0 top-0 border-r border-gray-800 z-20 text-gray-300">
+            <div class="h-16 flex items-center px-6 border-b border-gray-800 shrink-0 bg-[#001f3f]">
+                <h1 class="text-2xl font-bold text-white tracking-tight">ILM PATH</h1>
+            </div>
+            <nav class="flex-1 py-6 px-4 space-y-2 overflow-y-auto custom-scrollbar">
+                <p class="px-4 text-xs font-bold text-gray-500 uppercase tracking-wider mb-4">Finance Portal</p>
+                <a href="dashboard.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="invoices.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <span>Invoices</span>
+                </a>
+                <a href="payments.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    <span>Payments Received</span>
+                </a>
+                <a href="expenses.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path></svg>
+                    <span>Expenses</span>
+                </a>
+                <a href="reports.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <span>Financial Reports</span>
+                </a>
+                <a href="taxes.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span>Tax Documents</span>
+                </a>
+                <a href="settings.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium bg-medium-blue text-white shadow-md">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+  <div class="sidebar-overlay" onclick="closePortalSidebar()"></div>
+        <div class="flex-1 ml-64 flex flex-col min-h-screen main-content">
+            <header class="h-16 bg-[#00264d] text-white flex items-center justify-between px-8 fixed top-0 right-0 left-64 z-10 shadow-sm border-b border-gray-800 portal-header">
+      <button onclick="togglePortalSidebar()" class="mobile-menu-btn md:hidden items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+                      <div class="flex-1 flex justify-start items-center gap-6">
+                    <div class="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10 hover:border-white/20 transition-colors cursor-pointer">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <span class="text-sm font-medium text-gray-200">November 2026</span>
+                        <svg class="w-4 h-4 text-gray-400 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="relative text-gray-300 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-[#00264d]"></span>
+                    </button>
+                    <div class="relative ml-2">
+                        <button class="flex items-center gap-3 hover:opacity-80 transition-opacity" onclick="toggleProfileDropdown()">
+                            <div class="w-9 h-9 rounded-full bg-emerald-600 flex items-center justify-center font-semibold overflow-hidden border border-emerald-400">
+                                <span class="text-white text-sm">ZA</span>
+                            </div>
+                            <div class="flex flex-col items-start hidden sm:flex">
+                                <span class="text-sm font-medium">Zaid A.</span>
+                                <span class="text-xs text-emerald-400">Accountant</span>
+                            </div>
+                            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="profileDropdown" class="hidden absolute right-0 mt-3 w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100 text-dark-navy overflow-hidden">
+                            <div class="px-4 py-2 border-b border-gray-100 mb-1">
+                                <p class="text-sm font-bold">Zaid A.</p>
+                                <p class="text-xs text-light-blue">Finance Dept</p>
+                            </div>
+                            <a href="#" class="block px-4 py-2 text-sm hover:bg-very-light-blue transition-colors">My Profile</a>
+                            <a href="settings.html" class="block px-4 py-2 text-sm hover:bg-very-light-blue transition-colors">Account Settings</a>
+                            <div class="border-t border-gray-100 my-1"></div>
+                            <button onclick="showLoginModal()" class="w-full text-left block px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="flex-1 mt-16 bg-gray-50/50 p-6 md:p-8">
+                <div class="p-6 md:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in pb-12">
+                    <div class="flex justify-between items-end border-b border-gray-200 pb-4 mb-6">
+                        <div>
+                            <h2 class="text-2xl font-bold text-dark-navy tracking-tight">Finance Settings</h2>
+                            <p class="text-gray-500 text-sm mt-1">Configure company details, taxation rules, and payment gateways.</p>
+                        </div>
+                        <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl flex items-center gap-2 text-sm font-bold transition-colors shadow-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Save Configuration
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 space-y-6">
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                                <div class="p-5 border-b border-gray-50 flex items-center gap-2 bg-gray-50/50">
+                                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                    <h3 class="font-bold text-dark-navy">Company Financial Details</h3>
+                                </div>
+                                <div class="p-6 space-y-5">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        <div class="space-y-1.5">
+                                            <label class="text-sm font-bold text-dark-navy">Legal Business Name</label>
+                                            <input type="text" value="ILM PATH LLC" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500" />
+                                        </div>
+                                        <div class="space-y-1.5">
+                                            <label class="text-sm font-bold text-dark-navy">Tax ID / EIN</label>
+                                            <input type="text" value="XX-XXXXXXX" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 font-mono" />
+                                        </div>
+                                        <div class="space-y-1.5 md:col-span-2">
+                                            <label class="text-sm font-bold text-dark-navy">Registered Address (For Invoices)</label>
+                                            <textarea rows="3" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 resize-none">123 Education Lane
+Suite 100
+Learning City, CA 90210</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                                <div class="p-5 border-b border-gray-50 flex items-center gap-2 bg-gray-50/50">
+                                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                                    <h3 class="font-bold text-dark-navy">Localization & Taxes</h3>
+                                </div>
+                                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+                                    <div class="space-y-1.5">
+                                        <label class="text-sm font-bold text-dark-navy">Default Currency</label>
+                                        <select class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500">
+                                            <option value="USD">USD ($) - US Dollar</option>
+                                            <option value="EUR">EUR (&euro;) - Euro</option>
+                                            <option value="GBP">GBP (&pound;) - British Pound</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-1.5">
+                                        <label class="text-sm font-bold text-dark-navy">Default Tax Rate (%)</label>
+                                        <input type="number" value="0" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                                <div class="p-5 border-b border-gray-50 flex items-center gap-2 bg-gray-50/50">
+                                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                                    <h3 class="font-bold text-dark-navy">Payment Gateways</h3>
+                                </div>
+                                <div class="p-6 space-y-4">
+                                    <div class="p-4 border border-emerald-200 bg-emerald-50 rounded-xl relative">
+                                        <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                        <h4 class="font-bold text-emerald-900 mb-1">Stripe (Active)</h4>
+                                        <p class="text-xs text-emerald-700 mb-3">Primary gateway for credit cards.</p>
+                                        <button class="text-xs font-bold text-emerald-800 bg-emerald-100 hover:bg-emerald-200 px-3 py-1.5 rounded transition-colors">Configure API Keys</button>
+                                    </div>
+                                    <div class="p-4 border border-gray-200 bg-gray-50 rounded-xl relative">
+                                        <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-gray-400"></div>
+                                        <h4 class="font-bold text-gray-700 mb-1">PayPal (Inactive)</h4>
+                                        <p class="text-xs text-gray-500 mb-3">Alternative payment method.</p>
+                                        <button class="text-xs font-bold text-gray-600 bg-white border border-gray-300 hover:bg-gray-100 px-3 py-1.5 rounded transition-colors">Connect Account</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                                <div class="p-5 border-b border-gray-50 flex items-center gap-2 bg-gray-50/50">
+                                    <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"></path></svg>
+                                    <h3 class="font-bold text-dark-navy">Invoice Preferences</h3>
+                                </div>
+                                <div class="p-6 space-y-4">
+                                    <div class="space-y-1.5">
+                                        <label class="text-sm font-bold text-dark-navy">Invoice Prefix</label>
+                                        <input type="text" value="INV-2026-" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-emerald-500 font-mono" />
+                                    </div>
+                                    <div class="space-y-1.5">
+                                        <label class="text-sm font-bold text-dark-navy">Payment Terms</label>
+                                        <select class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-emerald-500">
+                                            <option>Due on Receipt</option>
+                                            <option>Net 15</option>
+                                            <option>Net 30</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="loginModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 mx-4">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-dark-navy">Sign In to Finance Portal</h2>
+                <p class="text-light-blue text-sm mt-1">Enter your credentials to continue</p>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label class="text-sm font-bold text-dark-navy block mb-1">Email Address</label>
+                    <input type="email" placeholder="accountant@ilmpath.com" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-medium-blue focus:ring-1 focus:ring-medium-blue" />
+                </div>
+                <div>
+                    <label class="text-sm font-bold text-dark-navy block mb-1">Password</label>
+                    <input type="password" placeholder="Enter your password" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-medium-blue focus:ring-1 focus:ring-medium-blue" />
+                </div>
+                <button type="button" onclick="handleLogin()" class="w-full bg-medium-blue text-white font-bold py-2.5 rounded-lg hover:bg-deep-navy transition-colors">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+        function toggleProfileDropdown() {
+            document.getElementById('profileDropdown').classList.toggle('hidden');
+        }
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+        }
+        function hideLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+        }
+        function handleLogin() {
+            hideLoginModal();
+            window.location.href = '../index.html';
+        }
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('profileDropdown');
+            const btn = e.target.closest('button[onclick="toggleProfileDropdown()"]');
+            if (!btn && !e.target.closest('#profileDropdown')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
+

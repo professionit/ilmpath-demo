@@ -1,0 +1,421 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ILM PATH | Teacher Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-navy': '#0B3C5A',
+            'deep-navy': '#003C69',
+            'medium-blue': '#3282B8',
+            'light-blue': '#627D98',
+            'very-light-blue': '#E8EEF5',
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <div class="min-h-screen bg-gray-50 flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-very-light-blue h-screen flex flex-col  sidebar-fixed  left-0 top-0 border-r border-gray-200 z-20">
+      <div class="h-16 flex items-center px-6 border-b border-gray-200 shrink-0">
+        <h1 class="text-2xl font-bold text-dark-navy tracking-tight">ILM PATH <span class="text-sm font-medium text-medium-blue ml-1">Teacher</span></h1>
+      </div>
+      <nav class="flex-1 py-6 px-4 space-y-2 overflow-y-auto custom-scrollbar">
+        <a href="dashboard.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors bg-medium-blue text-white shadow-sm">
+          <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="font-medium text-sm">Dashboard</span>
+        </a>
+        <a href="courses.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <span class="font-medium text-sm">My Courses</span>
+        </a>
+        <a href="schedule.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span class="font-medium text-sm">Schedule Classes</span>
+        </a>
+        <a href="students.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="font-medium text-sm">Students</span>
+        </a>
+        <a href="attendance.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span class="font-medium text-sm">Attendance Tracking</span>
+        </a>
+        <a href="assessments.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span class="font-medium text-sm">Assessments</span>
+        </a>
+        <a href="earnings.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <span class="font-medium text-sm">Earnings</span>
+        </a>
+        <a href="settings.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span class="font-medium text-sm">Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+  <div class="sidebar-overlay" onclick="closePortalSidebar()"></div>
+    <!-- Main Content -->
+    <div class="flex-1 ml-64 flex flex-col min-h-screen main-content">
+      <!-- Header -->
+      <header class="h-16 bg-dark-navy text-white flex items-center justify-between px-8 fixed top-0 right-0 left-64 z-10 shadow-sm portal-header">
+      <button onclick="togglePortalSidebar()" class="mobile-menu-btn md:hidden items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+              <div class="flex-1 flex justify-start items-center gap-8">
+          <div class="hidden lg:flex items-center gap-6 text-sm">
+            <div class="flex items-center gap-2 text-blue-100">
+              <svg class="w-4 h-4 text-medium-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span class="font-semibold text-white">245</span> Students
+            </div>
+            <div class="w-px h-4 bg-gray-600"></div>
+            <div class="flex items-center gap-2 text-blue-100">
+              <svg class="w-4 h-4 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+              <span class="font-semibold text-white">3</span> Active Classes
+            </div>
+            <div class="w-px h-4 bg-gray-600"></div>
+            <div class="flex items-center gap-2 text-blue-100">
+              <svg class="w-4 h-4 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <span class="font-semibold text-white">2</span> Pending Reviews
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <button class="relative text-gray-300 hover:text-white transition-colors">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-dark-navy"></span>
+          </button>
+          <div class="relative">
+            <button id="profileTrigger" class="flex items-center gap-3 hover:opacity-80 transition-opacity" onclick="toggleProfileDropdown()">
+              <div class="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center font-semibold overflow-hidden border border-gray-600">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Ustaz" alt="Profile" class="w-full h-full object-cover">
+              </div>
+              <div class="flex flex-col items-start hidden sm:flex">
+                <span class="text-sm font-medium">Ustaz Ahmed</span>
+                <span class="text-xs text-gray-400">Teacher</span>
+              </div>
+              <svg class="w-4 h-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="profileDropdown" class="hidden absolute right-0 mt-3 w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100 text-dark-navy overflow-hidden">
+              <div class="px-4 py-2 border-b border-gray-100 mb-1">
+                <p class="text-sm font-bold">Ustaz Ahmed</p>
+                <p class="text-xs text-light-blue">ahmed.teacher@ilmpath.com</p>
+              </div>
+              <a href="settings.html" class="block px-4 py-2 text-sm hover:bg-very-light-blue transition-colors">Account Settings</a>
+              <div class="border-t border-gray-100 my-1"></div>
+              <a href="../index.html" class="w-full text-left block px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <main class="flex-1 mt-16 bg-gray-50/50">
+        <div class="p-6 max-w-7xl mx-auto space-y-6">
+          <!-- Teaching Overview -->
+          <section>
+            <h2 class="text-2xl font-bold text-dark-navy mb-6">Teaching Overview</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-light-blue uppercase tracking-wide">Total Students Taught</p>
+                  <p class="text-2xl font-bold text-dark-navy mt-1.5">245</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-light-blue uppercase tracking-wide">Revenue This Month</p>
+                  <p class="text-2xl font-bold text-dark-navy mt-1.5">$1,250</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-lg bg-purple-50 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-purple-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-light-blue uppercase tracking-wide">Classes Scheduled This Week</p>
+                  <p class="text-2xl font-bold text-dark-navy mt-1.5">3</p>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 flex items-start gap-4">
+                <div class="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center shrink-0">
+                  <svg class="w-6 h-6 text-orange-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold text-light-blue uppercase tracking-wide">Pending Course Approvals</p>
+                  <p class="text-2xl font-bold text-dark-navy mt-1.5">1</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- My Courses Table -->
+          <section>
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold text-dark-navy">My Courses</h2>
+              <button class="text-sm font-medium text-medium-blue hover:underline">View All</button>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="bg-gray-50 border-b border-gray-100 text-xs font-bold text-light-blue uppercase tracking-wider">
+                      <th class="p-4">Course Name</th>
+                      <th class="p-4">Students Enrolled</th>
+                      <th class="p-4">Rating</th>
+                      <th class="p-4">Status</th>
+                      <th class="p-4 text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100">
+                    <tr class="hover:bg-gray-50/50 transition-colors">
+                      <td class="p-4 font-bold text-dark-navy text-sm">Complete Quran Memorization</td>
+                      <td class="p-4 text-sm text-light-blue">156</td>
+                      <td class="p-4 text-sm">
+                        <div class="flex items-center gap-1 text-yellow-600 font-bold">
+                          <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.8
+                        </div>
+                      </td>
+                      <td class="p-4">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-green-100 text-green-700">Published</span>
+                      </td>
+                      <td class="p-4 text-right space-x-2">
+                        <button class="px-3 py-1.5 bg-white border border-gray-200 text-dark-navy rounded text-xs font-medium hover:bg-gray-50">Edit</button>
+                        <button class="px-3 py-1.5 bg-very-light-blue text-medium-blue rounded text-xs font-medium hover:bg-blue-100">Analytics</button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50/50 transition-colors">
+                      <td class="p-4 font-bold text-dark-navy text-sm">Tajweed Essentials</td>
+                      <td class="p-4 text-sm text-light-blue">89</td>
+                      <td class="p-4 text-sm">
+                        <div class="flex items-center gap-1 text-yellow-600 font-bold">
+                          <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.9
+                        </div>
+                      </td>
+                      <td class="p-4">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-green-100 text-green-700">Published</span>
+                      </td>
+                      <td class="p-4 text-right space-x-2">
+                        <button class="px-3 py-1.5 bg-white border border-gray-200 text-dark-navy rounded text-xs font-medium hover:bg-gray-50">Edit</button>
+                        <button class="px-3 py-1.5 bg-very-light-blue text-medium-blue rounded text-xs font-medium hover:bg-blue-100">Analytics</button>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-gray-50/50 transition-colors">
+                      <td class="p-4 font-bold text-dark-navy text-sm">Arabic Grammar Advanced</td>
+                      <td class="p-4 text-sm text-light-blue">-</td>
+                      <td class="p-4 text-sm">
+                        <span class="text-gray-400">N/A</span>
+                      </td>
+                      <td class="p-4">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-bold bg-orange-100 text-orange-700">Pending</span>
+                      </td>
+                      <td class="p-4 text-right space-x-2">
+                        <button class="px-3 py-1.5 bg-white border border-gray-200 text-dark-navy rounded text-xs font-medium hover:bg-gray-50">Continue Editing</button>
+                        <button class="px-3 py-1.5 bg-medium-blue text-white rounded text-xs font-medium hover:bg-deep-navy">Submit</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- This Week's Schedule -->
+            <section>
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold text-dark-navy">This Week's Schedule</h2>
+                <button class="text-sm font-medium text-medium-blue hover:underline">Full Calendar</button>
+              </div>
+              <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-2 overflow-hidden h-[300px] flex flex-col">
+                <div class="divide-y divide-gray-100 overflow-y-auto custom-scrollbar pr-1">
+                  <div class="p-4 hover:bg-gray-50 transition-colors flex items-start gap-4 rounded-lg">
+                    <div class="w-14 h-14 bg-very-light-blue rounded-lg flex flex-col items-center justify-center shrink-0 border border-blue-100 text-medium-blue">
+                      <span class="text-[10px] font-bold uppercase">Mon</span>
+                      <span class="text-sm font-bold">3:00</span>
+                    </div>
+                    <div>
+                      <h3 class="text-sm font-bold text-dark-navy">Tajweed Session</h3>
+                      <div class="flex items-center gap-2 mt-2 text-xs font-medium text-gray-500">
+                        <svg class="w-3.5 h-3.5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        45 students enrolled
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-4 hover:bg-gray-50 transition-colors flex items-start gap-4 rounded-lg">
+                    <div class="w-14 h-14 bg-very-light-blue rounded-lg flex flex-col items-center justify-center shrink-0 border border-blue-100 text-medium-blue">
+                      <span class="text-[10px] font-bold uppercase">Wed</span>
+                      <span class="text-sm font-bold">2:00</span>
+                    </div>
+                    <div>
+                      <h3 class="text-sm font-bold text-dark-navy">Quran Recitation Practice</h3>
+                      <div class="flex items-center gap-2 mt-2 text-xs font-medium text-gray-500">
+                        <svg class="w-3.5 h-3.5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        32 students
+                      </div>
+                    </div>
+                  </div>
+                  <div class="p-4 hover:bg-gray-50 transition-colors flex items-start gap-4 rounded-lg">
+                    <div class="w-14 h-14 bg-very-light-blue rounded-lg flex flex-col items-center justify-center shrink-0 border border-blue-100 text-medium-blue">
+                      <span class="text-[10px] font-bold uppercase">Fri</span>
+                      <span class="text-sm font-bold">4:00</span>
+                    </div>
+                    <div>
+                      <h3 class="text-sm font-bold text-dark-navy">Question &amp; Answer Session</h3>
+                      <div class="flex items-center gap-2 mt-2 text-xs font-medium text-gray-500">
+                        <svg class="w-3.5 h-3.5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        Open
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Pending Reviews -->
+            <section>
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold text-dark-navy">Pending Reviews</h2>
+                <button class="text-sm font-medium text-medium-blue hover:underline">View All</button>
+              </div>
+              <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 h-[300px] flex flex-col gap-3">
+                <div class="p-4 border border-gray-100 rounded-lg bg-gray-50/50 flex flex-col sm:flex-row justify-between gap-4 items-start sm:items-center">
+                  <div>
+                    <h3 class="text-sm font-bold text-dark-navy flex items-center gap-2">
+                      <svg class="w-4 h-4 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                      Assignment 1: Memorize Juz 30
+                    </h3>
+                    <div class="flex items-center gap-3 mt-2 text-xs text-light-blue">
+                      <span class="font-medium text-dark-navy">Ahmed Hassan</span>
+                      <span>&bull;</span>
+                      <span>Submitted: Yesterday</span>
+                    </div>
+                  </div>
+                  <button class="w-full sm:w-auto px-4 py-2 bg-white border border-gray-200 shadow-sm text-medium-blue rounded-lg text-xs font-bold hover:bg-gray-50 transition-colors shrink-0">
+                    Review &amp; Grade
+                  </button>
+                </div>
+                <div class="p-4 border border-gray-100 rounded-lg bg-gray-50/50 flex flex-col sm:flex-row justify-between gap-4 items-start sm:items-center">
+                  <div>
+                    <h3 class="text-sm font-bold text-dark-navy flex items-center gap-2">
+                      <svg class="w-4 h-4 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                      Tajweed Audio Recording
+                    </h3>
+                    <div class="flex items-center gap-3 mt-2 text-xs text-light-blue">
+                      <span class="font-medium text-dark-navy">Sarah Malik</span>
+                      <span>&bull;</span>
+                      <span>Submitted: 2 hours ago</span>
+                    </div>
+                  </div>
+                  <button class="w-full sm:w-auto px-4 py-2 bg-white border border-gray-200 shadow-sm text-medium-blue rounded-lg text-xs font-bold hover:bg-gray-50 transition-colors shrink-0">
+                    Review &amp; Grade
+                  </button>
+                </div>
+                <div class="mt-auto border-t border-gray-100 pt-3 text-center">
+                  <span class="text-xs text-light-blue font-medium">You have 2 pending submissions to review.</span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Performance Analytics -->
+          <section>
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-xl font-bold text-dark-navy">Performance Analytics</h2>
+              <button class="text-sm font-medium text-medium-blue hover:underline flex items-center gap-1">
+                Detailed Analytics
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 h-[300px] flex flex-col">
+                <h3 class="text-sm font-bold text-dark-navy mb-6">Student Engagement (This Week)</h3>
+                <div class="flex-1 w-full chart-container">
+                  <svg class="w-full h-full" viewBox="0 0 400 200">
+                    <defs>
+                      <linearGradient id="engagementGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#3282B8;stop-opacity:0.3"/>
+                        <stop offset="100%" style="stop-color:#3282B8;stop-opacity:0"/>
+                      </linearGradient>
+                    </defs>
+                    <line x1="40" y1="10" x2="40" y2="180" stroke="#E5E7EB" stroke-width="1"/>
+                    <line x1="40" y1="180" x2="390" y2="180" stroke="#E5E7EB" stroke-width="1"/>
+                    <polyline points="60,115 110,130 160,72 210,68 260,140 310,142 360,170" fill="none" stroke="#3282B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="60" cy="115" r="4" fill="#3282B8" stroke="white" stroke-width="2"/>
+                    <circle cx="110" cy="130" r="4" fill="#3282B8" stroke="white" stroke-width="2"/>
+                    <circle cx="160" cy="72" r="4" fill="#3282B8" stroke="white" stroke-width="2"/>
+                    <circle cx="210" cy="68" r="4" fill="#3282B8" stroke="white" stroke-width="2"/>
+                    <circle cx="260" cy="140" r="4" fill="#3282B8" stroke="white" stroke-width="2"/>
+                    <circle cx="310" cy="142" r="4" fill="#3282B8" stroke="white" stroke-width="2"/>
+                    <circle cx="360" cy="170" r="4" fill="#3282B8" stroke="white" stroke-width="2"/>
+                    <text x="60" y="198" text-anchor="middle" font-size="11" fill="#627D98">Mon</text>
+                    <text x="110" y="198" text-anchor="middle" font-size="11" fill="#627D98">Tue</text>
+                    <text x="160" y="198" text-anchor="middle" font-size="11" fill="#627D98">Wed</text>
+                    <text x="210" y="198" text-anchor="middle" font-size="11" fill="#627D98">Thu</text>
+                    <text x="260" y="198" text-anchor="middle" font-size="11" fill="#627D98">Fri</text>
+                    <text x="310" y="198" text-anchor="middle" font-size="11" fill="#627D98">Sat</text>
+                    <text x="360" y="198" text-anchor="middle" font-size="11" fill="#627D98">Sun</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 h-[300px] flex flex-col">
+                <h3 class="text-sm font-bold text-dark-navy mb-6">Course Completion Rate (By Week)</h3>
+                <div class="flex-1 w-full chart-container">
+                  <svg class="w-full h-full" viewBox="0 0 400 200">
+                    <line x1="40" y1="10" x2="40" y2="180" stroke="#E5E7EB" stroke-width="1"/>
+                    <line x1="40" y1="180" x2="390" y2="180" stroke="#E5E7EB" stroke-width="1"/>
+                    <rect x="75" y="32" width="30" height="148" rx="4" fill="#0B3C5A"/>
+                    <rect x="165" y="45" width="30" height="135" rx="4" fill="#0B3C5A"/>
+                    <rect x="255" y="79" width="30" height="101" rx="4" fill="#0B3C5A"/>
+                    <rect x="345" y="105" width="30" height="75" rx="4" fill="#0B3C5A"/>
+                    <text x="90" y="198" text-anchor="middle" font-size="11" fill="#627D98">Week 1</text>
+                    <text x="180" y="198" text-anchor="middle" font-size="11" fill="#627D98">Week 2</text>
+                    <text x="270" y="198" text-anchor="middle" font-size="11" fill="#627D98">Week 3</text>
+                    <text x="360" y="198" text-anchor="middle" font-size="11" fill="#627D98">Week 4</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Footer -->
+          <footer class="pt-8 pb-4 mt-8 border-t border-gray-200 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-light-blue">&copy; 2026 ILM PATH Teacher Portal. All rights reserved. | Developed by <a href="https://professionit.com" target="_blank" class="hover:text-dark-navy transition-colors font-bold">Profession IT</a></p>
+            <div class="flex gap-6 text-xs text-light-blue">
+              <a href="#" class="hover:text-dark-navy transition-colors">Help Center</a>
+              <a href="#" class="hover:text-dark-navy transition-colors">Teaching Guidelines</a>
+            </div>
+          </footer>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
+

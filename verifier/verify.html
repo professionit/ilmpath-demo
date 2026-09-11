@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILM PATH - Certificate Verifier Verify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-navy': '#0B3C5A',
+                        'deep-navy': '#003C69',
+                        'medium-blue': '#3282B8',
+                        'light-blue': '#627D98',
+                        'very-light-blue': '#E8EEF5',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'heading': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; border-radius: 3px; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="min-h-screen bg-gray-50 flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-dark-navy h-screen flex flex-col  sidebar-fixed  left-0 top-0 border-r border-gray-800 z-20 shadow-xl">
+            <div class="h-16 flex items-center px-6 border-b border-gray-800 shrink-0">
+                <h1 class="text-2xl font-bold text-white tracking-tight">ILM PATH <span class="text-sm font-medium text-blue-400 ml-1">Verifier</span></h1>
+            </div>
+            <nav class="flex-1 py-6 px-4 space-y-2 overflow-y-auto custom-scrollbar">
+                <a href="dashboard.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <span class="font-medium text-sm">Dashboard</span>
+                </a>
+                <a href="verify.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors bg-medium-blue text-white shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <span class="font-medium text-sm">Verify Certificate</span>
+                </a>
+                <a href="crud.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    <span class="font-medium text-sm">Manage Certificates</span>
+                </a>
+                <a href="history.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="font-medium text-sm">Verification History</span>
+                </a>
+                <a href="revoked.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                    <span class="font-medium text-sm">Revoked Certificates</span>
+                </a>
+                <a href="settings.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-gray-400 hover:bg-gray-800 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span class="font-medium text-sm">Settings</span>
+                </a>
+            </nav>
+            <div class="p-4 border-t border-gray-800">
+                <div class="bg-sky-500/10 rounded-xl p-4 border border-sky-500/20">
+                    <p class="text-xs font-bold text-sky-400 uppercase mb-1">System Status</p>
+                    <p class="text-sm text-gray-300">Verification API is online and responding.</p>
+                </div>
+            </div>
+        </aside>
+
+  <div class="sidebar-overlay" onclick="closePortalSidebar()"></div>
+        <!-- Main Content -->
+        <div class="flex-1 ml-64 flex flex-col min-h-screen main-content">
+            <!-- Header -->
+            <header class="h-16 bg-dark-navy text-white flex items-center justify-between px-8 fixed top-0 right-0 left-64 z-10 shadow-sm border-b border-gray-800 portal-header">
+      <button onclick="togglePortalSidebar()" class="mobile-menu-btn md:hidden items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+                      <div class="flex-1 flex justify-start items-center gap-6">
+                    <div class="flex items-center gap-2 bg-sky-500/20 px-3 py-1.5 rounded border border-sky-500/30 text-sky-100">
+                        <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        <span class="text-sm font-bold">Certificate Verification System</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <button class="flex items-center gap-3 hover:opacity-80 transition-opacity" onclick="toggleProfileDropdown()">
+                            <div class="w-8 h-8 rounded bg-sky-600 flex items-center justify-center font-bold text-white shadow-inner">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <div class="flex flex-col items-start hidden sm:flex">
+                                <span class="text-sm font-bold text-white">Registry Auth</span>
+                                <span class="text-[10px] text-sky-300 uppercase tracking-wider">System Verifier</span>
+                            </div>
+                            <svg class="w-4 h-4 text-sky-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+
+                        <div id="profileDropdown" class="hidden absolute right-0 mt-3 w-56 bg-white rounded-lg shadow-xl py-2 border border-gray-100 text-dark-navy z-50">
+                            <div class="px-4 py-3 border-b border-gray-50 mb-1">
+                                <p class="text-sm font-bold">Verification Node</p>
+                                <p class="text-xs text-gray-500">System Level Access</p>
+                            </div>
+                            <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors font-medium">API Credentials</button>
+                            <button class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors font-medium">Audit Logs</button>
+                            <div class="border-t border-gray-50 mt-1 pt-1">
+                                <button onclick="showLoginModal()" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors font-bold">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 mt-16 bg-gray-50/50">
+                <div class="p-6 md:p-8 max-w-5xl mx-auto space-y-8 animate-fade-in pb-12">
+                    <div class="flex flex-col gap-2 mb-8">
+                        <h1 class="text-3xl font-bold text-dark-navy">Verify Certificate</h1>
+                        <p class="text-gray-500">Authenticate a certificate using its unique code or the student's registered email address.</p>
+                    </div>
+
+                    <!-- Search Form -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+                        <div class="max-w-2xl mx-auto text-center space-y-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-sky-50 mb-2">
+                                <svg class="w-8 h-8 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            
+                            <form class="flex flex-col sm:flex-row gap-3">
+                                <div class="relative flex-1">
+                                    <svg class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                    <input type="text" placeholder="e.g. IP-CERT-2024-001245 or email@example.com" class="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 text-dark-navy font-medium text-lg" />
+                                </div>
+                                <button type="submit" class="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-xl font-bold transition-colors shadow-sm whitespace-nowrap text-lg">Verify</button>
+                            </form>
+                            
+                            <div class="flex justify-center">
+                                <button class="flex items-center gap-2 text-sm font-medium text-sky-600 hover:text-sky-700 transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                                    Advanced Search Options
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Verification Results (hidden by default - shown after search) -->
+                    <div class="hidden">
+                        <h3 class="text-lg font-bold text-dark-navy mb-4">Verification Results</h3>
+                        
+                        <!-- Valid Result Example -->
+                        <div class="rounded-2xl border overflow-hidden bg-emerald-50/30 border-emerald-200">
+                            <div class="p-4 md:p-6 border-b flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-emerald-50 border-emerald-100">
+                                <div class="flex items-center gap-3">
+                                    <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 class="text-xl font-bold text-emerald-900">Valid Certificate</h4>
+                                        <p class="text-emerald-700 text-sm">This certificate is authentic and currently active.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-2">
+                                    <button class="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 shadow-sm">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                                        Print
+                                    </button>
+                                    <button class="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 px-3 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 shadow-sm">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                        Email
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="p-6 md:p-8 bg-white grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                <div class="space-y-4">
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Student Name</p>
+                                        <p class="font-bold text-dark-navy text-lg">Ahmed Hassan</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Course Completed</p>
+                                        <p class="font-bold text-dark-navy">Complete Quran Memorization</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Completion Score</p>
+                                        <p class="font-bold text-dark-navy">95% (Excellent)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Instructing Teacher</p>
+                                        <p class="font-medium text-gray-700">Ustaz Ahmed</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-4">
+                                    <div>
+                                        <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Verification Code</p>
+                                        <p class="font-mono font-bold text-sky-600 bg-sky-50 inline-block px-3 py-1.5 rounded-lg border border-sky-100">IP-CERT-2024-001245</p>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Issue Date</p>
+                                            <p class="font-medium text-gray-700">December 1, 2024</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Expiry Date</p>
+                                            <p class="font-medium text-gray-700">December 1, 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Certificate Management Actions -->
+                            <div class="p-4 border-t border-gray-100 bg-gray-50 flex flex-wrap gap-3">
+                                <button class="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 hover:bg-red-100 border border-red-200 rounded-lg text-sm font-bold transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path></svg>
+                                    Revoke Certificate
+                                </button>
+                                <button class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg text-sm font-bold transition-colors shadow-sm">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                                    Extend Validity
+                                </button>
+                                <button class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg text-sm font-bold transition-colors shadow-sm">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    Reissue Certificate
+                                </button>
+                                <div class="flex-1"></div>
+                                <button class="flex items-center gap-2 px-4 py-2 text-sky-600 hover:text-sky-700 hover:bg-sky-50 rounded-lg text-sm font-bold transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    View Audit Trail
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8 mx-4">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold text-dark-navy">Sign In to Verifier Portal</h2>
+                <p class="text-light-blue text-sm mt-1">Enter your credentials to continue</p>
+            </div>
+            <form class="space-y-4">
+                <div>
+                    <label class="text-sm font-bold text-dark-navy block mb-1">Email Address</label>
+                    <input type="email" placeholder="verifier@ilmpath.com" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-medium-blue focus:ring-1 focus:ring-medium-blue" />
+                </div>
+                <div>
+                    <label class="text-sm font-bold text-dark-navy block mb-1">Password</label>
+                    <input type="password" placeholder="Enter your password" class="w-full bg-white border border-gray-300 rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-medium-blue focus:ring-1 focus:ring-medium-blue" />
+                </div>
+                <button type="button" onclick="handleLogin()" class="w-full bg-medium-blue text-white font-bold py-2.5 rounded-lg hover:bg-deep-navy transition-colors">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script>
+        function toggleProfileDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+        
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.remove('hidden');
+        }
+        
+        function hideLoginModal() {
+            document.getElementById('loginModal').classList.add('hidden');
+        }
+        
+        function handleLogin() {
+            hideLoginModal();
+            window.location.href = '../index.html';
+        }
+        
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('profileDropdown');
+            const btn = e.target.closest('button[onclick="toggleProfileDropdown()"]');
+            if (!btn && !e.target.closest('#profileDropdown')) {
+                dropdown.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

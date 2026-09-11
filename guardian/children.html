@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Children - ILM PATH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-navy': '#0B3C5A',
+            'deep-navy': '#003C69',
+            'medium-blue': '#3282B8',
+            'light-blue': '#627D98',
+            'very-light-blue': '#E8EEF5',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fadeIn 0.3s ease-out; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-gray-50 flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-very-light-blue h-screen flex flex-col  sidebar-fixed  left-0 top-0 border-r border-blue-100 z-20">
+      <div class="h-16 flex items-center px-6 border-b border-blue-200 shrink-0 bg-medium-blue">
+        <h1 class="text-2xl font-bold text-white tracking-tight">ILM PATH</h1>
+      </div>
+      <nav class="flex-1 py-6 px-4 space-y-2 overflow-y-auto custom-scrollbar">
+        <a href="dashboard.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-dark-navy hover:bg-blue-100/50">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="children.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium bg-medium-blue text-white shadow-md">
+          <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>My Children</span>
+        </a>
+        <a href="progress.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-dark-navy hover:bg-blue-100/50">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <span>Course Progress</span>
+        </a>
+        <a href="attendance.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-dark-navy hover:bg-blue-100/50">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+          <span>Attendance Records</span>
+        </a>
+        <a href="invoices.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-dark-navy hover:bg-blue-100/50">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          <span>Invoices & Payments</span>
+        </a>
+        <a href="settings.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all font-medium text-dark-navy hover:bg-blue-100/50">
+          <svg class="w-5 h-5 text-light-blue" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+  <div class="sidebar-overlay" onclick="closePortalSidebar()"></div>
+    <!-- Main Content -->
+    <div class="flex-1 ml-64 flex flex-col min-h-screen main-content">
+      <!-- Header -->
+      <header class="h-16 bg-medium-blue text-white flex items-center justify-between px-8 fixed top-0 right-0 left-64 z-10 shadow-sm portal-header">
+      <button onclick="togglePortalSidebar()" class="mobile-menu-btn md:hidden items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+              <div class="flex-1 flex justify-start items-center">
+          <h2 class="text-lg font-bold hidden sm:block">Parent / Guardian Portal</h2>
+        </div>
+        <div class="flex items-center gap-4">
+          <button class="relative text-blue-100 hover:text-white transition-colors">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-medium-blue"></span>
+          </button>
+          <div class="relative ml-2">
+            <button class="flex items-center gap-3 hover:opacity-80 transition-opacity" onclick="document.getElementById('profileDropdown').classList.toggle('hidden')">
+              <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center font-bold text-medium-blue shadow-inner border border-blue-200">M</div>
+              <div class="flex flex-col items-start hidden sm:flex">
+                <span class="text-sm font-bold text-white">Maryam A.</span>
+                <span class="text-[10px] text-blue-200 uppercase tracking-wider">Guardian</span>
+              </div>
+              <svg class="w-4 h-4 text-blue-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div id="profileDropdown" class="hidden absolute right-0 mt-3 w-56 bg-white rounded-lg shadow-xl py-2 border border-gray-100 text-dark-navy">
+              <div class="px-4 py-3 border-b border-gray-50 mb-1">
+                <p class="text-sm font-bold">Maryam A.</p>
+                <p class="text-xs text-light-blue">Parent Account</p>
+              </div>
+              <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Account Settings</a>
+              <div class="border-t border-gray-50 my-1"></div>
+              <a href="../index.html" class="w-full text-left block px-4 py-2 text-sm text-red-600 hover:bg-red-50">Log Out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <main class="flex-1 mt-16 bg-gray-50/50">
+        <div class="p-6 md:p-8 max-w-7xl mx-auto space-y-6 animate-fade-in pb-12">
+          <div class="flex justify-between items-end border-b border-gray-200 pb-4 mb-6">
+            <div>
+              <h2 class="text-2xl font-bold text-dark-navy tracking-tight">My Children</h2>
+              <p class="text-gray-500 text-sm mt-1">Manage profiles and view quick summaries for your enrolled children.</p>
+            </div>
+            <button class="bg-medium-blue hover:bg-blue-700 text-white px-4 py-2 rounded-xl flex items-center gap-2 text-sm font-bold transition-colors">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+              Add Child
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Child 1 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+              <div class="flex items-start justify-between">
+                <div class="flex items-center gap-4">
+                  <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center border-4 border-white shadow-sm overflow-hidden shrink-0">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Omar" alt="Omar A." class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-dark-navy">Omar A.</h3>
+                    <div class="flex items-center gap-2 mt-1">
+                      <span class="text-sm text-light-blue font-medium">Grade 5 &bull; Age 10</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full text-xs font-bold">Active</span>
+              </div>
+              <div class="mt-6 grid grid-cols-2 gap-4">
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                  <div class="flex items-center gap-2 text-medium-blue mb-1">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-wider">Active Courses</span>
+                  </div>
+                  <p class="text-2xl font-bold text-dark-navy">2</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                  <div class="flex items-center gap-2 text-orange-500 mb-1">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-wider">Latest Milestone</span>
+                  </div>
+                  <p class="text-sm font-bold text-dark-navy mt-1 truncate" title="Memorized Juz 30">Memorized Juz 30</p>
+                </div>
+              </div>
+              <button class="w-full mt-6 bg-white border border-gray-200 text-dark-navy hover:bg-gray-50 hover:border-gray-300 py-3 rounded-xl font-bold text-sm transition-colors flex justify-center items-center gap-2">
+                View Detailed Profile
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+
+            <!-- Child 2 -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-200 transition-colors">
+              <div class="flex items-start justify-between">
+                <div class="flex items-center gap-4">
+                  <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center border-4 border-white shadow-sm overflow-hidden shrink-0">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Fatima" alt="Fatima A." class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-dark-navy">Fatima A.</h3>
+                    <div class="flex items-center gap-2 mt-1">
+                      <span class="text-sm text-light-blue font-medium">Grade 3 &bull; Age 8</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="bg-green-100 text-green-700 px-2.5 py-0.5 rounded-full text-xs font-bold">Active</span>
+              </div>
+              <div class="mt-6 grid grid-cols-2 gap-4">
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                  <div class="flex items-center gap-2 text-medium-blue mb-1">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-wider">Active Courses</span>
+                  </div>
+                  <p class="text-2xl font-bold text-dark-navy">1</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                  <div class="flex items-center gap-2 text-orange-500 mb-1">
+                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                    <span class="text-xs font-bold uppercase tracking-wider">Latest Milestone</span>
+                  </div>
+                  <p class="text-sm font-bold text-dark-navy mt-1 truncate" title="Perfect Attendance (Oct)">Perfect Attendance (Oct)</p>
+                </div>
+              </div>
+              <button class="w-full mt-6 bg-white border border-gray-200 text-dark-navy hover:bg-gray-50 hover:border-gray-300 py-3 rounded-xl font-bold text-sm transition-colors flex justify-center items-center gap-2">
+                View Detailed Profile
+                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../js/app.js"></script>
+</body>
+</html>

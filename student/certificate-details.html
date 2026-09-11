@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate Details - ILM PATH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-navy': '#0B3C5A',
+            'deep-navy': '#003C69',
+            'medium-blue': '#3282B8',
+            'light-blue': '#627D98',
+            'very-light-blue': '#E8EEF5',
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 flex">
+  <aside class="w-64 bg-very-light-blue h-screen flex flex-col  sidebar-fixed  left-0 top-0 border-r border-gray-200">
+    <div class="h-16 flex items-center px-6 border-b border-gray-200">
+      <h1 class="text-2xl font-bold text-dark-navy">ILM PATH</h1>
+    </div>
+    <nav class="flex-1 py-6 px-4 space-y-2">
+      <a href="dashboard.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"></path></svg>
+        <span class="font-medium text-sm">Dashboard</span>
+      </a>
+      <a href="courses.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        <span class="font-medium text-sm">My Courses</span>
+      </a>
+      <a href="classes.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+        <span class="font-medium text-sm">Live Classes</span>
+      </a>
+      <a href="progress.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+        <span class="font-medium text-sm">Progress</span>
+      </a>
+      <a href="certificates.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors bg-medium-blue text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+        <span class="font-medium text-sm">Certificates</span>
+      </a>
+      <a href="messages.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        <span class="font-medium text-sm">Messages</span>
+      </a>
+      <a href="settings.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-light-blue hover:bg-white hover:text-dark-navy">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+        <span class="font-medium text-sm">Settings</span>
+      </a>
+    </nav>
+  </aside>
+
+  <div class="sidebar-overlay" onclick="closePortalSidebar()"></div>
+  <div class="flex-1 ml-64 flex flex-col min-h-screen main-content">
+    <header class="h-16 bg-dark-navy text-white flex items-center justify-between px-8 fixed top-0 right-0 left-64 z-10 shadow-sm portal-header">
+      <button onclick="togglePortalSidebar()" class="mobile-menu-btn md:hidden items-center justify-center w-10 h-10 rounded-lg hover:bg-white/10 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+            <div class="flex-1 flex justify-center">
+        <div class="relative w-full max-w-md" search-bar>
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input type="text" placeholder="Search courses, teachers, or resources..." class="w-full bg-deep-navy text-white placeholder-gray-400 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-medium-blue text-sm transition-shadow" />
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="relative text-gray-300 hover:text-white transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+          <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-dark-navy"></span>
+        </button>
+        <div class="relative">
+          <button id="profile-toggle" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <div class="w-9 h-9 rounded-full bg-medium-blue flex items-center justify-center font-semibold overflow-hidden border border-gray-600">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Profile" class="w-full h-full object-cover" />
+            </div>
+            <div class="flex flex-col items-start hidden sm:flex">
+              <span class="text-sm font-medium">Ahmed A.</span>
+              <span class="text-xs text-gray-400">Student</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div id="profile-dropdown" class="absolute right-0 mt-3 w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100 text-dark-navy overflow-hidden hidden">
+            <div class="px-4 py-2 border-b border-gray-100 mb-1">
+              <p class="text-sm font-bold">Ahmed A.</p>
+              <p class="text-xs text-light-blue">ahmed.student@ilmpath.com</p>
+            </div>
+            <a href="#" class="block px-4 py-2 text-sm hover:bg-very-light-blue transition-colors">My Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm hover:bg-very-light-blue transition-colors">Account Settings</a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="../index.html" class="w-full text-left block px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1 mt-16 bg-gray-50/50">
+      <div class="p-6 max-w-5xl mx-auto flex flex-col h-[calc(100vh-4rem)]">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 shrink-0">
+          <div class="flex items-center gap-4">
+            <a href="certificates.html" class="p-2 hover:bg-white rounded-full transition-colors border border-transparent hover:border-gray-200 hover:shadow-sm text-light-blue hover:text-dark-navy">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            </a>
+            <h2 class="text-2xl font-bold text-dark-navy">Certificate Details</h2>
+          </div>
+          <div class="flex items-center gap-3 ml-12 sm:ml-0">
+            <button class="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 text-dark-navy rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              Share
+            </button>
+            <button class="flex items-center gap-2 px-4 py-2 bg-medium-blue text-white rounded-lg text-sm font-medium hover:bg-deep-navy transition-colors shadow-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              Download PDF
+            </button>
+          </div>
+        </div>
+
+        <div class="flex-1 bg-gray-100 rounded-xl p-4 sm:p-8 flex items-center justify-center overflow-auto custom-scrollbar">
+          <div class="bg-white w-full max-w-4xl aspect-[1.414/1] min-h-[500px] shadow-xl relative p-8 sm:p-12 flex flex-col items-center justify-center text-center border-[12px] border-double border-gray-100">
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/arabesque.png')"></div>
+            <div class="relative z-10 w-full flex flex-col items-center">
+              <div class="w-16 h-16 sm:w-20 sm:h-20 bg-very-light-blue rounded-full flex items-center justify-center mb-6 text-medium-blue">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+              </div>
+              <h1 class="text-3xl sm:text-5xl font-serif text-dark-navy mb-3 tracking-tight">Certificate of Completion</h1>
+              <p class="text-light-blue uppercase tracking-widest text-xs sm:text-sm mb-10 font-bold">ILM PATH Academy</p>
+              <p class="text-gray-500 italic mb-4 text-sm sm:text-base">This is to proudly certify that</p>
+              <h2 class="text-3xl sm:text-4xl font-bold text-dark-navy mb-4 border-b-2 border-gray-200 pb-2 px-12 inline-block">Ahmed A.</h2>
+              <p class="text-gray-500 italic mb-6 text-sm sm:text-base">has successfully completed the program requirements for</p>
+              <h3 class="text-2xl sm:text-3xl font-bold text-medium-blue mb-4">Tajweed Fundamentals</h3>
+              <div class="inline-block bg-very-light-blue px-4 py-1.5 rounded-full mb-12 sm:mb-16">
+                <span class="text-sm font-medium text-dark-navy">Grade: Excellent</span>
+              </div>
+              <div class="w-full flex justify-between items-end mt-auto px-4 sm:px-12">
+                <div class="text-center w-32">
+                  <p class="text-dark-navy font-bold text-sm sm:text-base">September 15, 2026</p>
+                  <p class="text-xs text-gray-400 border-t border-gray-200 pt-1 mt-1 uppercase tracking-wider">Date of Issue</p>
+                </div>
+                <div class="text-center hidden sm:block">
+                  <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-medium-blue/20 flex items-center justify-center mb-2 mx-auto relative">
+                    <div class="absolute inset-2 border border-medium-blue/30 rounded-full border-dashed"></div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-medium-blue rounded-full flex items-center justify-center text-white shadow-inner">
+                      <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center w-32">
+                  <p class="text-dark-navy font-medium italic text-xl sm:text-2xl" style="font-family: 'Brush Script MT', cursive">Ustaz Ahmed</p>
+                  <p class="text-xs text-gray-400 border-t border-gray-200 pt-1 mt-1 uppercase tracking-wider">Lead Instructor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+          <div class="text-sm text-light-blue">
+            <span class="font-medium text-dark-navy">Certificate ID:</span> ILM-482917
+          </div>
+          <button class="flex items-center gap-2 text-sm font-medium text-[#0A66C2] hover:underline">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+            Add to LinkedIn Profile
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/app.js"></script>
+  <script>
+    document.getElementById('profile-toggle').addEventListener('click', function() {
+      document.getElementById('profile-dropdown').classList.toggle('hidden');
+    });
+    document.addEventListener('click', function(e) {
+      var dd = document.getElementById('profile-dropdown');
+      var tg = document.getElementById('profile-toggle');
+      if (!tg.contains(e.target) && !dd.contains(e.target)) { dd.classList.add('hidden'); }
+    });
+  </script>
+</body>
+</html>
+
